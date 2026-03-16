@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation — PlugAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/docs.css" />
+</head>
+
+<body class="docs-body">
+
+    <!-- TOP NAV -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">PlugAI</span>
+            </a>
+            <div class="docs-nav-center">
+                <div class="docs-search glass">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    <input type="text" placeholder="Search docs..." id="docsSearch" />
+                    <kbd>⌘K</kbd>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="dashboard.html" class="btn-ghost">Dashboard</a>
+                <a href="playground.html" class="btn-primary">Playground</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="docs-layout">
+        <!-- SIDEBAR -->
+        <aside class="docs-sidebar">
+            <div class="docs-sidebar-inner">
+                <div class="docs-nav-section">
+                    <h4>Getting Started</h4>
+                    <a href="#intro" class="docs-link active">Introduction</a>
+                    <a href="#install" class="docs-link">Installation</a>
+                    <a href="#auth" class="docs-link">Authentication</a>
+                    <a href="#quickstart" class="docs-link">Quick Start</a>
+                </div>
+                <div class="docs-nav-section">
+                    <h4>API Reference</h4>
+                    <a href="#chat" class="docs-link">Chat</a>
+                    <a href="#image" class="docs-link">Image Generation</a>
+                    <a href="#speech" class="docs-link">Speech to Text</a>
+                    <a href="#summary" class="docs-link">Summarization</a>
+                    <a href="#analytics" class="docs-link">Analytics</a>
+                    <a href="#reco" class="docs-link">Recommendations</a>
+                </div>
+                <div class="docs-nav-section">
+                    <h4>SDKs</h4>
+                    <a href="#sdks" class="docs-link">Python SDK</a>
+                    <a href="#sdks" class="docs-link">JavaScript SDK</a>
+                    <a href="#sdks" class="docs-link">Go SDK</a>
+                </div>
+                <div class="docs-nav-section">
+                    <h4>Resources</h4>
+                    <a href="#rate" class="docs-link">Rate Limits</a>
+                    <a href="#errors" class="docs-link">Error Codes</a>
+                    <a href="#changelog" class="docs-link">Changelog</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN DOCS -->
+        <main class="docs-main">
+            <!-- INTRO -->
+            <section id="intro" class="docs-section">
+                <div class="docs-badge">Getting Started</div>
+                <h1>Introduction to PlugAI</h1>
+                <p class="docs-lead">PlugAI is the unified AI API platform that lets developers and businesses integrate
+                    powerful AI capabilities into any application with a single API key and a few lines of code.</p>
+                <div class="docs-alert info">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    <span>Version 2.1 is now available. See the <a href="#changelog">Changelog</a> for what's
+                        new.</span>
+                </div>
+            </section>
+
+            <!-- INSTALLATION -->
+            <section id="install" class="docs-section">
+                <h2>Installation</h2>
+                <p>Install the PlugAI SDK using your package manager:</p>
+                <div class="code-tabs">
+                    <button class="code-tab active" data-target="install-python">Python</button>
+                    <button class="code-tab" data-target="install-js">JavaScript</button>
+                    <button class="code-tab" data-target="install-go">Go</button>
+                </div>
+                <div class="code-window glass" id="install-python">
+                    <div class="window-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <button class="copy-btn" onclick="copyCodeBlock(this)"><svg width="13" height="13"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg> Copy</button>
+                    </div>
+                    <pre class="code-content"><code>pip install plugai</code></pre>
+                </div>
+                <div class="code-window glass hidden" id="install-js">
+                    <div class="window-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <button class="copy-btn" onclick="copyCodeBlock(this)"><svg width="13" height="13"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg> Copy</button>
+                    </div>
+                    <pre class="code-content"><code>npm install @plugai/sdk</code></pre>
+                </div>
+                <div class="code-window glass hidden" id="install-go">
+                    <div class="window-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <button class="copy-btn" onclick="copyCodeBlock(this)"><svg width="13" height="13"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg> Copy</button>
+                    </div>
+                    <pre class="code-content"><code>go get github.com/plugai/plugai-go</code></pre>
+                </div>
+            </section>
+
+            <!-- AUTH -->
+            <section id="auth" class="docs-section">
+                <h2>Authentication</h2>
+                <p>All API requests require an API key. You can generate one from the <a
+                        href="dashboard.html">Dashboard</a>. Pass your key in the <code>Authorization</code> header:</p>
+                <div class="code-window glass">
+                    <div class="window-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <button class="copy-btn" onclick="copyCodeBlock(this)"><svg width="13" height="13"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg> Copy</button>
+                    </div>
+                    <pre class="code-content"><code>Authorization: Bearer plug_sk_your_api_key_here</code></pre>
+                </div>
+                <div class="docs-alert warning">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        <line x1="12" y1="9" x2="12" y2="13" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    <span>Never expose your API key in client-side code. Always use environment variables.</span>
+                </div>
+            </section>
+
+            <!-- CHAT API -->
+            <section id="chat" class="docs-section">
+                <h2>Chat API</h2>
+                <p>Send a message to one of our language models and receive a response.</p>
+                <div class="endpoint-header">
+                    <span class="method post">POST</span>
+                    <code>/v1/chat</code>
+                </div>
+                <h3>Parameters</h3>
+                <div class="params-table">
+                    <div class="param-row header">
+                        <span>Parameter</span><span>Type</span><span>Required</span><span>Description</span>
+                    </div>
+                    <div class="param-row">
+                        <span><code>model</code></span><span>string</span><span><span
+                                class="required">Yes</span></span><span>The model ID to use (e.g.
+                            <code>plugai-gpt</code>)</span>
+                    </div>
+                    <div class="param-row">
+                        <span><code>message</code></span><span>string</span><span><span
+                                class="required">Yes</span></span><span>The user message to send</span>
+                    </div>
+                    <div class="param-row">
+                        <span><code>temperature</code></span><span>float</span><span><span
+                                class="optional">No</span></span><span>Randomness 0–2. Default: 0.7</span>
+                    </div>
+                    <div class="param-row">
+                        <span><code>stream</code></span><span>boolean</span><span><span
+                                class="optional">No</span></span><span>Stream response tokens. Default: false</span>
+                    </div>
+                    <div class="param-row">
+                        <span><code>max_tokens</code></span><span>integer</span><span><span
+                                class="optional">No</span></span><span>Max tokens in response. Default: 1024</span>
+                    </div>
+                </div>
+                <h3>Example Request</h3>
+                <div class="code-tabs">
+                    <button class="code-tab active" data-target="chat-python">Python</button>
+                    <button class="code-tab" data-target="chat-js">JavaScript</button>
+                    <button class="code-tab" data-target="chat-curl">cURL</button>
+                </div>
+                <div class="code-window glass" id="chat-python">
+                    <div class="window-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <button class="copy-btn" onclick="copyCodeBlock(this)"><svg width="13" height="13"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg> Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="code-keyword">import</span> <span class="code-module">plugai</span>
+
+client = plugai.<span class="code-fn">Client</span>(api_key=<span class="code-string">"plug_sk_..."</span>)
+
+response = client.chat.<span class="code-fn">complete</span>(
+    model=<span class="code-string">"plugai-gpt"</span>,
+    message=<span class="code-string">"Explain quantum computing simply."</span>,
+    temperature=<span class="code-num">0.7</span>,
+    max_tokens=<span class="code-num">512</span>
+)
+
+<span class="code-fn">print</span>(response.text)</code></pre>
+                </div>
+                <div class="code-window glass hidden" id="chat-js">
+                    <div class="window-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <button class="copy-btn" onclick="copyCodeBlock(this)"><svg width="13" height="13"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg> Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="code-keyword">import</span> PlugAI <span class="code-keyword">from</span> <span class="code-string">'@plugai/sdk'</span>;
+
+<span class="code-keyword">const</span> client = <span class="code-keyword">new</span> <span class="code-fn">PlugAI</span>({ apiKey: process.env.<span class="code-module">PLUGAI_API_KEY</span> });
+
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> client.chat.<span class="code-fn">complete</span>({
+  model: <span class="code-string">'plugai-gpt'</span>,
+  message: <span class="code-string">'Explain quantum computing simply.'</span>,
+  temperature: <span class="code-num">0.7</span>
+});
+
+console.<span class="code-fn">log</span>(response.text);</code></pre>
+                </div>
+                <div class="code-window glass hidden" id="chat-curl">
+                    <div class="window-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <button class="copy-btn" onclick="copyCodeBlock(this)"><svg width="13" height="13"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg> Copy</button>
+                    </div>
+                    <pre class="code-content"><code>curl https://api.plugai.dev/v1/chat \
+  -H "Authorization: Bearer plug_sk_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "plugai-gpt",
+    "message": "Explain quantum computing simply.",
+    "temperature": 0.7
+  }'</code></pre>
+                </div>
+            </section>
+
+            <!-- RATE LIMITS -->
+            <section id="rate" class="docs-section">
+                <h2>Rate Limits</h2>
+                <p>API rate limits are applied per API key:</p>
+                <div class="docs-table">
+                    <div class="table-row header">
+                        <span>Plan</span><span>Requests/min</span><span>Tokens/min</span><span>Concurrent</span></div>
+                    <div class="table-row"><span>Starter</span><span>60</span><span>40,000</span><span>5</span></div>
+                    <div class="table-row"><span>Pro</span><span>600</span><span>200,000</span><span>50</span></div>
+                    <div class="table-row">
+                        <span>Enterprise</span><span>Unlimited</span><span>Unlimited</span><span>Custom</span></div>
+                </div>
+            </section>
+
+            <!-- ERROR CODES -->
+            <section id="errors" class="docs-section">
+                <h2>Error Codes</h2>
+                <div class="docs-table">
+                    <div class="table-row header"><span>Code</span><span>Meaning</span></div>
+                    <div class="table-row"><span><code class="status-err-inline">400</code></span><span>Bad request —
+                            invalid parameters</span></div>
+                    <div class="table-row"><span><code class="status-err-inline">401</code></span><span>Unauthorized —
+                            invalid or missing API key</span></div>
+                    <div class="table-row"><span><code class="status-err-inline">429</code></span><span>Rate limit
+                            exceeded — slow down requests</span></div>
+                    <div class="table-row"><span><code class="status-ok-inline">200</code></span><span>Success</span>
+                    </div>
+                    <div class="table-row"><span><code class="status-err-inline">500</code></span><span>Internal server
+                            error — try again</span></div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- RIGHT TOC -->
+        <aside class="docs-toc">
+            <h5>On this page</h5>
+            <a href="#intro" class="toc-link active">Introduction</a>
+            <a href="#install" class="toc-link">Installation</a>
+            <a href="#auth" class="toc-link">Authentication</a>
+            <a href="#chat" class="toc-link">Chat API</a>
+            <a href="#rate" class="toc-link">Rate Limits</a>
+            <a href="#errors" class="toc-link">Error Codes</a>
+        </aside>
+    </div>
+
+    <script type="module" src="js/docs.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — PlugAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="nav-logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">PlugAI</span>
+                </a>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Collapse sidebar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-label">Main</span>
+                    <a href="#overview" class="sidebar-item active" data-tab="overview">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                        <span>Overview</span>
+                    </a>
+                    <a href="#apikeys" class="sidebar-item" data-tab="apikeys">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <path
+                                d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
+                        </svg>
+                        <span>API Keys</span>
+                    </a>
+                    <a href="#usage" class="sidebar-item" data-tab="usage">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                        <span>Usage</span>
+                    </a>
+                    <a href="#models" class="sidebar-item" data-tab="models">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+                        </svg>
+                        <span>Models</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <span class="nav-section-label">Account</span>
+                    <a href="#billing" class="sidebar-item" data-tab="billing">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <rect x="1" y="4" width="22" height="16" rx="2" />
+                            <line x1="1" y1="10" x2="23" y2="10" />
+                        </svg>
+                        <span>Billing</span>
+                    </a>
+                    <a href="docs.html" class="sidebar-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                        <span>Documentation</span>
+                    </a>
+                    <a href="playground.html" class="sidebar-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        <span>Playground</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-card glass">
+                    <div class="user-avatar" id="userAvatar">JD</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">John Dev</div>
+                        <div class="user-plan" id="userPlan">Pro Plan</div>
+                    </div>
+                    <button class="user-menu-btn" id="userMenuBtn" aria-label="User menu" aria-expanded="false">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="1" />
+                            <circle cx="12" cy="5" r="1" />
+                            <circle cx="12" cy="19" r="1" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="user-menu glass" id="userMenu" style="display:none;margin-top:10px;padding:10px;border-radius:12px;">
+                    <button class="btn-ghost" id="logoutBtn" style="width:100%;justify-content:center;font-size:13px;">Log out</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="dashboard-main">
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="mobile-sidebar-btn" id="mobileSidebarBtn" aria-label="Toggle sidebar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+                    </button>
+                    <div class="breadcrumb">
+                        <span>Dashboard</span>
+                        <span class="breadcrumb-sep">/</span>
+                        <span class="breadcrumb-active" id="breadcrumbActive">Overview</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-bar glass">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.35-4.35" />
+                        </svg>
+                        <input type="text" placeholder="Search..." />
+                    </div>
+                    <button class="icon-btn" aria-label="Notifications">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                        </svg>
+                        <span class="notif-badge">3</span>
+                    </button>
+                    <a href="index.html" class="btn-ghost" style="font-size:13px">← Back to Site</a>
+                </div>
+            </header>
+
+            <!-- TAB: OVERVIEW -->
+            <div class="tab-content active" id="tab-overview">
+                <!-- STATS ROW -->
+                <div class="stats-row">
+                    <div class="stat-card glass">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">API Requests</span>
+                            <div class="stat-card-icon blue">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <path
+                                        d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14" />
+                                    <path d="m7.5 4.27 9 5.15" />
+                                    <polyline points="3.29 7 12 12 20.71 7" />
+                                    <line x1="12" y1="22" x2="12" y2="12" />
+                                    <circle cx="18.5" cy="15.5" r="2.5" />
+                                    <path d="M20.27 17.27 22 19" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="stat-card-value">48,293</div>
+                        <div class="stat-card-change positive">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="18 15 12 9 6 15" />
+                            </svg>
+                            +12.5% from last month
+                        </div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Error Rate</span>
+                            <div class="stat-card-icon red">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="8" x2="12" y2="12" />
+                                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="stat-card-value">0.12%</div>
+                        <div class="stat-card-change positive">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="18 15 12 9 6 15" />
+                            </svg>
+                            -0.04% improvement
+                        </div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Avg Latency</span>
+                            <div class="stat-card-icon purple">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="stat-card-value">87ms</div>
+                        <div class="stat-card-change positive">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="18 15 12 9 6 15" />
+                            </svg>
+                            13ms faster
+                        </div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Tokens Used</span>
+                            <div class="stat-card-icon cyan">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="stat-card-value">2.4M</div>
+                        <div class="stat-card-change negative">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                            +8.2% from last month
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHART + API KEY -->
+                <div class="chart-row">
+                    <div class="chart-card glass">
+                        <div class="chart-header">
+                            <h3>API Usage — Last 30 Days</h3>
+                            <div class="chart-legend">
+                                <span class="legend-dot" style="background:var(--primary)"></span> Requests
+                                <span class="legend-dot" style="background:var(--secondary)"></span> Errors
+                            </div>
+                        </div>
+                        <canvas id="usageChart" height="200"></canvas>
+                    </div>
+                    <div class="quick-panel">
+                        <div class="panel-card glass">
+                            <h4>Quick API Key</h4>
+                            <p class="panel-subtitle">Your active API key</p>
+                            <div class="api-key-display glass">
+                                <span class="api-key-value" id="apiKeyDisplay">plug_sk_••••••••••••••••••••2f4a</span>
+                                <button class="icon-btn" onclick="toggleApiKey()" id="toggleKeyBtn"
+                                    aria-label="Show API key">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                                <button class="icon-btn" onclick="copyApiKey()" aria-label="Copy API key">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" />
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <a href="#apikeys" class="btn-ghost"
+                                style="width:100%;justify-content:center;margin-top:12px;font-size:13px"
+                                data-tab="apikeys">Manage Keys →</a>
+                        </div>
+                        <div class="panel-card glass">
+                            <h4>Plan Usage</h4>
+                            <div class="usage-bar-container">
+                                <div class="usage-bar-label">
+                                    <span>API Calls</span>
+                                    <span>48,293 / 100,000</span>
+                                </div>
+                                <div class="usage-bar">
+                                    <div class="usage-bar-fill" style="width:48.3%"></div>
+                                </div>
+                            </div>
+                            <div class="usage-bar-container">
+                                <div class="usage-bar-label">
+                                    <span>Tokens</span>
+                                    <span>2.4M / 5M</span>
+                                </div>
+                                <div class="usage-bar">
+                                    <div class="usage-bar-fill"
+                                        style="width:48%;background:linear-gradient(90deg,var(--secondary),var(--primary))">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECENT ACTIVITY -->
+                <div class="activity-card glass">
+                    <div class="card-header">
+                        <h3>Recent Requests</h3>
+                        <span class="status-badge online">Live</span>
+                    </div>
+                    <div class="activity-table">
+                        <div class="table-header">
+                            <span>Endpoint</span><span>Model</span><span>Latency</span><span>Tokens</span><span>Status</span>
+                        </div>
+                        <div class="table-row">
+                            <span class="code-cell">POST
+                                /v1/chat</span><span>plugai-gpt</span><span>84ms</span><span>342</span><span
+                                class="status-ok">200</span>
+                        </div>
+                        <div class="table-row">
+                            <span class="code-cell">POST
+                                /v1/image</span><span>plug-vision</span><span>1.2s</span><span>—</span><span
+                                class="status-ok">200</span>
+                        </div>
+                        <div class="table-row">
+                            <span class="code-cell">POST
+                                /v1/speech</span><span>plug-whisper</span><span>320ms</span><span>1024</span><span
+                                class="status-ok">200</span>
+                        </div>
+                        <div class="table-row">
+                            <span class="code-cell">POST
+                                /v1/chat</span><span>plugai-gpt</span><span>—</span><span>—</span><span
+                                class="status-err">429</span>
+                        </div>
+                        <div class="table-row">
+                            <span class="code-cell">POST
+                                /v1/summarize</span><span>plug-sum</span><span>210ms</span><span>867</span><span
+                                class="status-ok">200</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: API KEYS -->
+            <div class="tab-content" id="tab-apikeys">
+                <div class="page-header">
+                    <h2>API Keys</h2>
+                    <button class="btn-primary" onclick="showCreateKeyModal()">+ Create New Key</button>
+                </div>
+                <div class="keys-list" id="keysList"></div>
+            </div>
+
+            <!-- TAB: MODELS -->
+            <div class="tab-content" id="tab-models">
+                <div class="page-header">
+                    <h2>Available Models</h2>
+                </div>
+                <div class="models-grid">
+                    <div class="model-card glass">
+                        <div class="model-badge new">New</div>
+                        <div class="model-icon">💬</div>
+                        <h3>plugai-gpt</h3>
+                        <p>State-of-the-art conversational AI with 128k context window.</p>
+                        <div class="model-meta"><span>Chat</span><span>128k ctx</span></div>
+                    </div>
+                    <div class="model-card glass">
+                        <div class="model-icon">🎨</div>
+                        <h3>plug-vision</h3>
+                        <p>High quality image generation up to 4096×4096 resolution.</p>
+                        <div class="model-meta"><span>Image</span><span>4K</span></div>
+                    </div>
+                    <div class="model-card glass">
+                        <div class="model-icon">🎙️</div>
+                        <h3>plug-whisper</h3>
+                        <p>100+ language transcription with speaker diarization.</p>
+                        <div class="model-meta"><span>Speech</span><span>100+ lang</span></div>
+                    </div>
+                    <div class="model-card glass">
+                        <div class="model-icon">📝</div>
+                        <h3>plug-sum</h3>
+                        <p>Extract concise summaries from any long-form content.</p>
+                        <div class="model-meta"><span>Summary</span><span>64k ctx</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Key Modal -->
+    <div class="modal-overlay" id="createKeyModal" onclick="this.classList.remove('open')">
+        <div class="modal glass" onclick="event.stopPropagation()">
+            <h3>Create New API Key</h3>
+            <p>Give your key a name to identify it later.</p>
+            <input type="text" class="modal-input glass" id="createKeyName" placeholder="e.g. My App — Production" />
+            <div class="modal-actions">
+                <button class="btn-ghost"
+                    onclick="document.getElementById('createKeyModal').classList.remove('open')">Cancel</button>
+                <button class="btn-primary" id="createKeyConfirmBtn">Create Key</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+
+</html>
